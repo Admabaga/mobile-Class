@@ -5,57 +5,59 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#593A28"
+    android:background="#202426"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/botonIniciarSesion"
+        android:id="@+id/botonInicioSesion"
         android:layout_width="201dp"
         android:layout_height="52dp"
-        android:backgroundTint="#5F7340"
+        android:layout_marginBottom="88dp"
+        android:backgroundTint="#6C733D"
         android:text="Iniciar sesion"
         android:textSize="18sp"
+        android:textColor="#F2F2F2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.711" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tittle"
-        android:layout_width="370dp"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="88dp"
-        android:text="Don't even think about it! App"
+        android:layout_marginBottom="52dp"
+        android:minWidth="200dp"
+        android:text="Bienvenido a Banantioquia"
+        android:textAlignment="center"
         android:textColor="#F2EDE4"
-        android:textSize="28sp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/botonRegistrarse"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/botonIniciarSesion"
+        android:id="@+id/botonRegistrarse"
         android:layout_width="201dp"
         android:layout_height="52dp"
-        android:backgroundTint="#5F7340"
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="#6C733D"
         android:text="Registrarse"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#F2F2F2"
+        app:layout_constraintBottom_toTopOf="@+id/botonInicioSesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.306" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="276dp"
-        android:layout_height="257dp"
-        android:layout_marginTop="68dp"
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/tittle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tittle"
-        app:srcCompat="@drawable/initialpicture" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.721"
+        app:srcCompat="@drawable/logobanco" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

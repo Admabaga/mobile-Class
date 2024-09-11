@@ -5,67 +5,141 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D99F59"
+    android:background="#9DA65D"
     tools:context=".Lobby">
 
     <LinearLayout
-        android:layout_width="202dp"
-        android:layout_height="122dp"
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="159dp"
+        android:layout_marginBottom="26dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="9sp"
                 android:layout_weight="1"
-                android:backgroundTint="#5F7340"
-                android:text="Button"
+                android:backgroundTint="#202426"
+                android:text="Retiros"
                 android:textSize="18sp" />
 
             <Button
                 android:id="@+id/button0"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="9sp"
                 android:layout_weight="1"
-                android:backgroundTint="#5F7340"
-                android:text="Button"
+                android:backgroundTint="#202426"
+                android:text="Recargas"
                 android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
 
             <Button
                 android:id="@+id/button9"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="9sp"
                 android:layout_weight="1"
-                android:backgroundTint="#5F7340"
-                android:text="Button"
+                android:backgroundTint="#202426"
+                android:text="Transferencias"
                 android:textSize="18sp" />
 
             <Button
                 android:id="@+id/button10"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="9sp"
                 android:layout_weight="1"
-                android:backgroundTint="#5F7340"
-                android:text="Button"
-                android:textSize="18sp" />
+                android:backgroundTint="#202426"
+                android:text="Movimientos"
+                android:textSize="17sp" />
         </LinearLayout>
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tituloBienvenida"
+        android:layout_width="412dp"
+        android:layout_height="42dp"
+        android:text="Bienvenido a tu cuenta"
+        android:textAlignment="center"
+        android:textColor="#F2F2F2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/nombreUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_marginBottom="18dp"
+        android:text="Que deseas hacer:"
+        android:textAlignment="center"
+        android:textColor="#F2F2F2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreUsuario" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="414dp"
+        android:layout_height="250dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/tituloBienvenida"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCerrarSesion"
+        app:srcCompat="@drawable/iconousuario" />
+
+    <Button
+        android:id="@+id/buttonCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="51dp"
+        android:layout_weight="1"
+        android:backgroundTint="#202426"
+        android:text="Cerrar sesion"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="56dp"
+        android:text="{Nombre usuario}"
+        android:textAlignment="center"
+        android:textColor="#F2F2F2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloBienvenida" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

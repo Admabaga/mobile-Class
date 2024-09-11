@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2EDE4"
+    android:background="#F2F2F2"
     tools:context=".Registro">
 
     <Button
@@ -14,11 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="397dp"
-        android:backgroundTint="#5F7340"
+        android:layout_marginBottom="43dp"
+        android:backgroundTint="#6C733D"
         android:text="Volver"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordUsuario"
+        app:layout_constraintBottom_toTopOf="@+id/registroTittle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,51 +26,51 @@
         android:id="@+id/botonRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="544dp"
-        android:layout_marginBottom="21dp"
-        android:backgroundTint="#5F7340"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#6C733D"
         android:text="Registrarse"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/responseRegistro"
-        app:layout_constraintStart_toStartOf="@+id/responseRegistro"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/passwordUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/passwordUsuario" />
 
     <EditText
         android:id="@+id/inputNombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
         android:hint="Ingresa tu nombre"
         android:inputType="text"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/inputApellidosUsuario"
-        app:layout_constraintStart_toStartOf="@+id/inputApellidosUsuario" />
+        app:layout_constraintStart_toStartOf="@+id/inputIdUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/inputIdUsuario" />
 
     <EditText
         android:id="@+id/inputApellidosUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="317dp"
+        android:layout_marginBottom="22dp"
         android:ems="10"
         android:hint="Ingresa tus apellidos"
         android:inputType="text"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/correoUsuario"
+        app:layout_constraintStart_toStartOf="@+id/inputNombreUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/inputNombreUsuario" />
 
     <EditText
         android:id="@+id/correoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
         android:hint="Ingresa tus correo"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/passwordUsuario"
         app:layout_constraintStart_toStartOf="@+id/inputApellidosUsuario"
         app:layout_constraintTop_toBottomOf="@+id/inputApellidosUsuario" />
 
@@ -78,46 +78,48 @@
         android:id="@+id/passwordUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="99dp"
+        android:layout_marginBottom="40dp"
         android:ems="10"
         android:hint="Ingresa tu contraseña"
         android:inputType="textPassword"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/responseRegistro"
+        app:layout_constraintBottom_toTopOf="@+id/botonRegistrarse"
         app:layout_constraintStart_toStartOf="@+id/correoUsuario"
-        app:layout_constraintTop_toBottomOf="@+id/botonVolverRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/correoUsuario" />
 
     <TextView
         android:id="@+id/registroTittle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="83dp"
         android:text="Registro"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/botonVolverRegistro"
+        app:layout_constraintBottom_toTopOf="@+id/inputIdUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonVolverRegistro" />
 
     <EditText
         android:id="@+id/inputIdUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
         android:hint="Ingresa tu cedula"
         android:inputType="number"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/inputNombreUsuario"
-        app:layout_constraintEnd_toEndOf="@+id/inputNombreUsuario" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registroTittle" />
 
     <TextView
         android:id="@+id/responseRegistro"
-        android:layout_width="208dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="27dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

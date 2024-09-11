@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2EDE4"
+    android:background="#F2F2F2"
     tools:context=".Login">
 
     <Button
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="28dp"
-        android:backgroundTint="#5F7340"
+        android:backgroundTint="#6C733D"
         android:textSize="18sp"
         android:text="volver"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="136dp"
-        android:backgroundTint="#5F7340"
+        android:backgroundTint="#6C733D"
         android:textSize="18sp"
         android:text="Iniciar sesion"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,25 +37,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
         android:hint="Ingresa tu usuario"
+        android:inputType="text"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.868" />
+        app:layout_constraintVertical_bias="0.814" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:hint="Ingresa tu contraseña"
+        android:layout_marginBottom="92dp"
         android:ems="10"
+        android:hint="Ingresa tu contraseña"
         android:inputType="textPassword"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/botonIniciarSesion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -68,4 +71,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonIniciarSesion"
         app:layout_constraintVertical_bias="0.219" />
+
+
+    <TextView
+        android:id="@+id/inicioSesionTittle"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="Inicio sesion"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/correoLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.596" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
