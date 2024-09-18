@@ -25,24 +25,24 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/botonRetiro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="9sp"
                 android:layout_weight="1"
                 android:backgroundTint="#202426"
                 android:text="Retiros"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button0"
+                android:id="@+id/botonRecarga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="9sp"
                 android:layout_weight="1"
                 android:backgroundTint="#202426"
                 android:text="Recargas"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -52,24 +52,24 @@
 
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/botonTransferencia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="9sp"
                 android:layout_weight="1"
                 android:backgroundTint="#202426"
                 android:text="Transferencias"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/botonMovimiento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="9sp"
                 android:layout_weight="1"
                 android:backgroundTint="#202426"
                 android:text="Movimientos"
-                android:textSize="17sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
 
@@ -123,7 +123,7 @@
         android:layout_weight="1"
         android:backgroundTint="#202426"
         android:text="Cerrar sesion"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -9,12 +9,12 @@
     tools:context=".Movimiento">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/volverLobby"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="43dp"
+        android:layout_marginBottom="58dp"
         android:backgroundTint="#6C733D"
         android:text="Volver"
         android:textSize="18sp"
@@ -25,8 +25,8 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:layout_marginBottom="19dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="37dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,15 +34,15 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
+            android:layout_width="411dp"
+            android:layout_height="207dp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="411dp"
-        android:layout_height="166dp"
+        android:layout_width="match_parent"
+        android:layout_height="187dp"
+        android:layout_marginBottom="28dp"
         android:background="#9DA65D"
         android:backgroundTint="#9DA65D"
         android:orientation="vertical"
@@ -56,8 +56,8 @@
             android:id="@+id/saldoTransferencia"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Tu saldo actual es:"
             android:padding="10sp"
+            android:text="Tu saldo actual es:"
             android:textColor="#F2F2F2"
             android:textSize="20sp" />
 
@@ -65,8 +65,8 @@
             android:id="@+id/numeroCuenta"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Tu numero de cuenta es:"
             android:padding="10sp"
+            android:text="Tu numero de cuenta es:"
             android:textColor="#F2F2F2"
             android:textSize="20sp" />
 
@@ -74,8 +74,8 @@
             android:id="@+id/estado"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Tu cuenta esta:"
             android:padding="10sp"
+            android:text="Tu cuenta esta:"
             android:textColor="#F2F2F2"
             android:textSize="20sp" />
     </LinearLayout>
@@ -84,7 +84,7 @@
         android:id="@+id/transferenciaTittle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="51dp"
+        android:layout_marginBottom="68dp"
         android:text="Movimientos"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -92,6 +92,6 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/volverLobby" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

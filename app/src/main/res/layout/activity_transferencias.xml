@@ -9,16 +9,16 @@
     tools:context=".Transferencias">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/volverLobby"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="133dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="#6C733D"
-        android:textSize="18sp"
         android:text="Volver"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/transferenciaTittle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,12 +28,12 @@
         android:layout_height="0dp"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="42dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferenciaTittle">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <EditText
             android:id="@+id/cuentaReceptora"
@@ -60,9 +60,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:textSize="18sp"
             android:backgroundTint="#6C733D"
-            android:text="Transferir" />
+            android:text="Transferir"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/responseTransferencia"
@@ -73,7 +73,8 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="185dp"
+        android:layout_marginBottom="26dp"
         android:background="#9DA65D"
         android:backgroundTint="#9DA65D"
         android:orientation="vertical"
@@ -81,7 +82,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2">
+        app:layout_constraintTop_toBottomOf="@+id/transferenciaTittle">
 
         <TextView
             android:id="@+id/saldoTransferencia"
@@ -96,8 +97,8 @@
             android:id="@+id/numeroCuenta"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Tu numero de cuenta es:"
             android:padding="10sp"
+            android:text="Tu numero de cuenta es:"
             android:textColor="#F2F2F2"
             android:textSize="20sp" />
 
@@ -113,17 +114,16 @@
 
     <TextView
         android:id="@+id/transferenciaTittle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="306dp"
+        android:layout_marginBottom="69dp"
         android:text="Transferencias"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volverLobby" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
