@@ -30,6 +30,7 @@ public class Movimiento extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Movimiento.this, Lobby.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

@@ -40,6 +40,7 @@ public class Lobby extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Lobby.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

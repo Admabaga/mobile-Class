@@ -31,6 +31,7 @@ public class Transferencias extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Transferencias.this, Lobby.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

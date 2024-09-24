@@ -30,6 +30,7 @@ public class Recargas extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Recargas.this, Lobby.class);
                 startActivity(intent);
+                finish();
             }
         });
 

@@ -30,6 +30,7 @@ public class Retiros extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Retiros.this, Lobby.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
