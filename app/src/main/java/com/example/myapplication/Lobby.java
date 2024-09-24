@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,18 +12,23 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.myapplication.Network.DTO.LoginDTO;
+
 public class Lobby extends AppCompatActivity {
     private Button recarga;
     private Button retiro;
     private Button movimiento;
     private Button transferencia;
     private Button cerrarSesion;
+    private TextView nombreUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_lobby);
+        Intent intent = getIntent();
+        LoginDTO datosRecibidos = (LoginDTO) intent.getSerializableExtra("datosUsuario");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -34,11 +40,11 @@ public class Lobby extends AppCompatActivity {
         movimiento = findViewById(R.id.botonMovimiento);
         transferencia = findViewById(R.id.botonTransferencia);
         cerrarSesion = findViewById(R.id.buttonCerrarSesion);
-
+        nombreUsuario = findViewById(R.id.nombreUsuario);
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Lobby.this, MainActivity.class);
+                Intent intent = new Intent(Lobby.this, Login.class);
                 startActivity(intent);
                 finish();
             }

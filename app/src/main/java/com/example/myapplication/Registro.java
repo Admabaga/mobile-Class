@@ -12,9 +12,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.example.myapplication.Network.ClienteApi;
-import com.example.myapplication.Network.RespuestaError;
+import com.example.myapplication.Network.RespuestaErrorBackend;
 import com.example.myapplication.Network.RespuestaRegistro;
 import com.example.myapplication.Network.DTO.UsuarioDTO;
+import com.example.myapplication.Network.RespuestaServicios;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -32,7 +33,6 @@ public class Registro extends AppCompatActivity {
     private EditText cedula;
     private EditText correoElectronico;
     private TextView respuestaServer;
-    private String respuesta;
     private ClienteApi clienteApi;
 
     @Override
@@ -74,37 +74,36 @@ public class Registro extends AppCompatActivity {
                     password.getText().toString()
             );
 
-            callApiInBackground(usuario);
+            enviarPeticionRegistro(usuario);
         });
     }
-    private void callApiInBackground(final UsuarioDTO usuario) {
+    private void enviarPeticionRegistro(final UsuarioDTO usuario) {
         runOnUiThread(() -> {
             try {
-                Call<RespuestaRegistro> call = clienteApi.registerUser(usuario);
-                call.enqueue(new Callback<RespuestaRegistro>() {
+                Call<RespuestaServicios> call = clienteApi.registroUsuario(usuario);
+                call.enqueue(new Callback<RespuestaServicios>() {
                     @Override
-                    public void onResponse(Call<RespuestaRegistro> call, Response<RespuestaRegistro> response) {
+                    public void onResponse(Call<RespuestaServicios> call, Response<RespuestaServicios> response) {
                         if (response.isSuccessful()) {
                             mensajeExitoso();
                         } else {
                             try {
                                 String errorBody = response.errorBody().string();
                                 if (errorBody.isEmpty()) {
-                                    mostrarError("Error desconocido");
+                                    mostrarError("Error desconocido.");
                                 } else {
                                     Gson gson = new Gson();
-                                    RespuestaError errorResponse = gson.fromJson(errorBody, RespuestaError.class);
+                                    RespuestaErrorBackend errorResponse = gson.fromJson(errorBody, RespuestaErrorBackend.class);
                                     String mensajeError = errorResponse.getMessage();
                                     mostrarError(mensajeError);
                                 }
                             } catch (Exception e) {
-                                mostrarError("Error al procesar la respuesta del servidor");
+                                mostrarError("Error al procesar la respuesta del servidor.");
                             }
                         }
                     }
-
                     @Override
-                    public void onFailure(Call<RespuestaRegistro> call, Throwable t) {
+                    public void onFailure(Call<RespuestaServicios> call, Throwable t) {
                         mostrarError(t.getMessage());
                     }
                 });
