@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
-            android:hint="Ingresa el valor a retirar"
+            android:hint="Valor a retirar"
             android:inputType="number"
             android:textAlignment="center" />
 

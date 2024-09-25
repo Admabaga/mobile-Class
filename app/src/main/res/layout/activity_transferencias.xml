@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
-            android:hint="Ingresa numero de cuenta"
+            android:hint="Cuenta a transferir"
             android:inputType="number"
             android:textAlignment="center" />
 
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
-            android:hint="Ingresa el valor a transferir"
+            android:hint="Valor a transferir"
             android:inputType="number"
             android:textAlignment="center" />
 

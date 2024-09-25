@@ -9,7 +9,6 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface ClienteApi {
 
@@ -23,9 +22,15 @@ public interface ClienteApi {
             @Body LoginDTO loginDTO
     );
 
-    @POST("/consignaciones/{cuentaId}")
-    Call<RespuestaRegistro> consignar(
+    @POST("/consignaciones/{idCuenta}")
+    Call<ServiciosDTO> consignar(
             @Body ServiciosDTO serviciosDTO,
-            @Query("cuentaId") String cuentaId
+            @Path("idCuenta") Long idCuenta
+    );
+
+    @POST("/retiros/{idCuenta}")
+    Call<ServiciosDTO> retirar(
+            @Body ServiciosDTO serviciosDTO,
+            @Path("idCuenta") Long idCuenta
     );
 }

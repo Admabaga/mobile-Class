@@ -20,6 +20,8 @@ import com.example.myapplication.Network.RespuestaErrorBackend;
 import com.example.myapplication.Network.RespuestaRegistro;
 import com.google.gson.Gson;
 
+import java.text.DecimalFormat;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,7 +59,7 @@ public class Recargas extends AppCompatActivity {
         valorRecarga = findViewById(R.id.valorARecargar);
         Retrofit retrofit = new Retrofit.Builder()
 
-//                    .baseUrl("https://banco-backend-znok.onrender.com")
+//              .baseUrl("https://banco-backend-znok.onrender.com")
                 .baseUrl("http://192.168.20.22:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -73,37 +75,41 @@ public class Recargas extends AppCompatActivity {
             }
         });
 
-        recargar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        recargar.setOnClickListener(v -> {
+            String valorARecargar = valorRecarga.getText().toString();
+            try {
                 ServiciosDTO serviciosDTO = new ServiciosDTO();
-                serviciosDTO.setValor(Double.valueOf(valorRecarga.getText().toString()));
-                String cuentaId = String.valueOf(datosRecibidos.getIdCuenta());
-                String nuevoSaldo = String.valueOf(Double.valueOf(datosRecibidos.getSaldo()) + Double.valueOf(serviciosDTO.getValor()));
-//                enviarPeticionRecargar(serviciosDTO, cuentaId);
-
+                serviciosDTO.setValor(Double.parseDouble(valorARecargar));
+                Long idCuenta = datosRecibidos.getIdCuenta();
+                enviarPeticionRecargar(serviciosDTO, idCuenta);
+            } catch (NumberFormatException e) {
+                respuestaServer.setText("Valor inválido. Debe ser un número.");
             }
         });
-
     }
-    public void renderizarInfoCuenta(TextView saldo, TextView numeroCuenta, TextView estado, LoginDTO datosRecibidos){
-        saldo.setText("Saldo: "+datosRecibidos.getSaldo());
-        numeroCuenta.setText("Numero de cuenta: "+datosRecibidos.getNumeroCuenta());
-        if (datosRecibidos.getEstado()!= true){
+
+    public void renderizarInfoCuenta(TextView saldo, TextView numeroCuenta, TextView estado, LoginDTO datosRecibidos) {
+        saldo.setText("Saldo: " + datosRecibidos.getSaldo());
+        numeroCuenta.setText("Número de cuenta: " + datosRecibidos.getNumeroCuenta());
+
+        if (!datosRecibidos.getEstado()) {
             estado.setText("Cuenta: Inactiva");
-        }else {
+        } else {
             estado.setText("Cuenta: Activa");
         }
     }
-    private void enviarPeticionRecargar(final ServiciosDTO serviciosDTO, String cuentaId) {
+
+    private void enviarPeticionRecargar(final ServiciosDTO serviciosDTO, Long idCuenta) {
         runOnUiThread(() -> {
             try {
-                Call<RespuestaRegistro> call = clienteApi.consignar(serviciosDTO, cuentaId);
-                call.enqueue(new Callback<RespuestaRegistro>() {
+                Call<ServiciosDTO> call = clienteApi.consignar(serviciosDTO, idCuenta);
+                call.enqueue(new Callback<ServiciosDTO>() {
                     @Override
-                    public void onResponse(Call<RespuestaRegistro> call, Response<RespuestaRegistro> response) {
+                    public void onResponse(Call<ServiciosDTO> call, Response<ServiciosDTO> response) {
                         if (response.isSuccessful()) {
-                            respuestaServer.setText("Recarga exitosa!");
+                            ServiciosDTO serviciosDTO1 = response.body();
+                            saldo.setText("Saldo: "+numeros(serviciosDTO1.getSaldo()));
+                            respuestaServer.setText("Recarga exitosa.");
                         } else {
                             try {
                                 String errorBody = response.errorBody().string();
@@ -112,25 +118,31 @@ public class Recargas extends AppCompatActivity {
                                 } else {
                                     Gson gson = new Gson();
                                     RespuestaErrorBackend errorResponse = gson.fromJson(errorBody, RespuestaErrorBackend.class);
-                                    String mensajeError = errorResponse.getMessage();
-                                    mostrarError(mensajeError);
+                                    mostrarError(errorResponse.getMessage());
                                 }
                             } catch (Exception e) {
                                 mostrarError("Error al procesar la respuesta del servidor.");
                             }
                         }
                     }
+
                     @Override
-                    public void onFailure(Call<RespuestaRegistro> call, Throwable t) {
-                        mostrarError(t.getMessage());
+                    public void onFailure(Call<ServiciosDTO> call, Throwable t) {
+                        mostrarError("Error de conexión: " + t.getMessage());
                     }
                 });
             } catch (Exception e) {
-                mostrarError(e.getMessage());
+                mostrarError("Error: " + e.getMessage());
             }
         });
     }
+
     private void mostrarError(String mensajeError) {
         respuestaServer.setText(mensajeError);
+    }
+
+    public String numeros(Double numero){
+        DecimalFormat formato = new DecimalFormat("###,###,##0.0");
+        return formato.format(numero);
     }
 }

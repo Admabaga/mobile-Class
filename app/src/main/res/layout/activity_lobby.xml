@@ -21,7 +21,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="174dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,21 +36,23 @@
 
             <Button
                 android:id="@+id/botonRetiro"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="9sp"
                 android:layout_weight="1"
+                android:layout_marginRight="1dp"
                 android:backgroundTint="#202426"
+                app:cornerRadius="0dp"
                 android:text="Retiros"
                 android:textSize="16sp" />
 
             <Button
                 android:id="@+id/botonRecarga"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="9sp"
                 android:layout_weight="1"
+                android:layout_marginLeft="1dp"
                 android:backgroundTint="#202426"
+                app:cornerRadius="0dp"
                 android:text="Recargas"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -63,23 +65,25 @@
 
             <Button
                 android:id="@+id/botonTransferencia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="9sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="#202426"
+                app:cornerRadius="0dp"
+                android:layout_marginRight="1dp"
                 android:text="Transferencias"
-                android:textSize="15sp" />
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/botonMovimiento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="9sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                app:cornerRadius="0dp"
+                android:layout_marginLeft="1dp"
                 android:backgroundTint="#202426"
                 android:text="Movimientos"
-                android:textSize="15sp" />
+                android:textSize="16sp" />
         </LinearLayout>
 
 
@@ -128,9 +132,11 @@
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/menu"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
