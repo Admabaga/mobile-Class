@@ -8,16 +8,26 @@
     android:background="#9DA65D"
     tools:context=".Lobby">
 
+    <ImageView
+        android:id="@+id/imagenLobby"
+        android:layout_width="match_parent"
+        android:layout_height="146dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/tituloBienvenida"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/iconousuario" />
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="159dp"
-        android:layout_marginBottom="26dp"
+        android:layout_height="174dp"
+        android:layout_marginBottom="40dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,68 +87,89 @@
 
     <TextView
         android:id="@+id/tituloBienvenida"
-        android:layout_width="412dp"
-        android:layout_height="42dp"
-        android:text="Bienvenido a tu cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_marginBottom="40dp"
+        android:text="Bienvenido "
         android:textAlignment="center"
         android:textColor="#F2F2F2"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/nombreUsuario"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/menu"
         android:layout_width="match_parent"
-        android:layout_height="34dp"
-        android:layout_marginBottom="18dp"
+        android:layout_height="42dp"
         android:text="Que deseas hacer:"
         android:textAlignment="center"
         android:textColor="#F2F2F2"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreUsuario" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="414dp"
-        android:layout_height="250dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/tituloBienvenida"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCerrarSesion"
-        app:srcCompat="@drawable/iconousuario" />
+        tools:layout_editor_absoluteX="6dp" />
 
     <Button
         android:id="@+id/buttonCerrarSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="51dp"
+        android:layout_width="167dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:backgroundTint="#202426"
         android:text="Cerrar sesion"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/imagenLobby"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.355" />
 
-    <TextView
-        android:id="@+id/nombreUsuario"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="56dp"
-        android:textAlignment="center"
-        android:textColor="#F2F2F2"
-        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/menu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloBienvenida" />
+        app:layout_constraintStart_toStartOf="parent">
 
+        <TextView
+            android:id="@+id/saldo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:textAlignment="center"
+            android:textColor="#F2F2F2"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/saldo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tituloBienvenida" />
+
+        <TextView
+            android:id="@+id/numeroCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center"
+            android:textColor="#F2F2F2"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/numeroCuenta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/estado" />
+
+        <TextView
+            android:id="@+id/estado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="26dp"
+            android:textAlignment="center"
+            android:textColor="#F2F2F2"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/saldo" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

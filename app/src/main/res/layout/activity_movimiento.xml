@@ -53,11 +53,10 @@
         app:layout_constraintTop_toBottomOf="@+id/transferenciaTittle">
 
         <TextView
-            android:id="@+id/saldoTransferencia"
+            android:id="@+id/saldoMovimiento"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:padding="10sp"
-            android:text="Tu saldo actual es:"
             android:textColor="#F2F2F2"
             android:textSize="20sp" />
 
@@ -66,7 +65,6 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:padding="10sp"
-            android:text="Tu numero de cuenta es:"
             android:textColor="#F2F2F2"
             android:textSize="20sp" />
 
@@ -75,7 +73,6 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:padding="10sp"
-            android:text="Tu cuenta esta:"
             android:textColor="#F2F2F2"
             android:textSize="20sp" />
     </LinearLayout>

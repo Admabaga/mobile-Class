@@ -62,7 +62,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="wrap_content"
         android:background="#9DA65D"
         android:backgroundTint="#9DA65D"
         android:orientation="vertical"
@@ -75,18 +75,18 @@
         app:layout_constraintVertical_bias="0.706">
 
         <TextView
-            android:id="@+id/saldoRetiro"
+            android:id="@+id/saldoRecarga"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Tu saldo actual es:"
+            android:layout_height="wrap_content"
             android:padding="10sp"
+            android:text="Tu saldo actual es:"
             android:textColor="#F2F2F2"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/numeroCuenta"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:padding="10sp"
             android:text="Tu numero de cuenta es:"
             android:textColor="#F2F2F2"
@@ -95,9 +95,9 @@
         <TextView
             android:id="@+id/estado"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Tu cuenta esta:"
+            android:layout_height="wrap_content"
             android:padding="10sp"
+            android:text="Tu cuenta esta:"
             android:textColor="#F2F2F2"
             android:textSize="20sp" />
     </LinearLayout>
@@ -112,10 +112,10 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547" />
+        app:layout_constraintVertical_bias="0.675" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

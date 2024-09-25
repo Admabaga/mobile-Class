@@ -80,13 +80,14 @@ public class Login extends AppCompatActivity {
     private void enviarPeticionInicioSesion(final LoginDTO loginDTO) {
         runOnUiThread(() -> {
             try {
-                Call<RespuestaServicios> call = clienteApi.inicioSesion(loginDTO);
-                call.enqueue(new Callback<RespuestaServicios>() {
+                Call<LoginDTO> call = clienteApi.inicioSesion(loginDTO);
+                call.enqueue(new Callback<LoginDTO>() {
                     @Override
-                    public void onResponse(Call<RespuestaServicios> call, Response<RespuestaServicios> response) {
+                    public void onResponse(Call<LoginDTO> call, Response<LoginDTO> response) {
                         if (response.isSuccessful()) {
-                            RespuestaServicios respuesta = response.body();
+                            LoginDTO respuesta = response.body();
                             Intent intent = new Intent(Login.this, Lobby.class);
+                            intent.putExtra("datos", respuesta);
                             startActivity(intent);
                         } else {
                             try {
@@ -105,7 +106,7 @@ public class Login extends AppCompatActivity {
                         }
                     }
                     @Override
-                    public void onFailure(Call<RespuestaServicios> call, Throwable t) {
+                    public void onFailure(Call<LoginDTO> call, Throwable t) {
                         mostrarError(t.getMessage());
                     }
                 });
