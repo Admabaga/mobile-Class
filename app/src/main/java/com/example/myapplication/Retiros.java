@@ -59,7 +59,7 @@ public class Retiros extends AppCompatActivity {
         valorRetiro = findViewById(R.id.valorARetirar);
         renderizarInfoCuenta(saldo, numeroCuenta, estado, datosRecibidos);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.16.57.195:8080")
+                .baseUrl("http://192.168.20.22:8080")
 //                .baseUrl("https://banco-backend-znok.onrender.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

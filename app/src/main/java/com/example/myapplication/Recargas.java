@@ -71,9 +71,9 @@ public class Recargas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent resultIntent = new Intent(Recargas.this, Lobby.class);
-                LoginDTO datosActuales = new LoginDTO();
-                datosActuales.setSaldo(datosRecibidos.getSaldo());
-                resultIntent.putExtra("datosActualizados", datosActuales);
+//                LoginDTO datosActuales = new LoginDTO();
+//                datosActuales.setSaldo(datosRecibidos.getSaldo());
+//                resultIntent.putExtra("datosActualizados", datosActuales);
                 finish();
             }
         });

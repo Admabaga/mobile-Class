@@ -15,7 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.Network.DTO.LoginDTO;
 
-import java.text.DecimalFormat;
 
 public class Lobby extends AppCompatActivity {
     private Button recarga;
@@ -49,16 +48,17 @@ public class Lobby extends AppCompatActivity {
         estado = findViewById(R.id.estado);
         numeroCuenta = findViewById(R.id.numeroCuenta);
 
-        Intent intentActualizar = getIntent();
-        LoginDTO actualizarData = (LoginDTO) intentActualizar.getSerializableExtra("datosActualizados");
+//        Intent intentActualizar = getIntent();
+//        LoginDTO actualizarData = (LoginDTO) intentActualizar.getSerializableExtra("datosActualizados");
 
         // Combinar los datos originales con los actualizados
-        if (actualizarData != null) {
-            renderizarInfoCuenta(saldo, numeroCuenta, estado, actualizarData);
-
-        }else {
-            renderizarInfoCuenta(saldo, numeroCuenta, estado, datosRecibidos);
-        }
+//        if (actualizarData != null) {
+//            renderizarInfoCuenta(saldo, numeroCuenta, estado, actualizarData);
+//
+//        }else {
+//            renderizarInfoCuenta(saldo, numeroCuenta, estado, datosRecibidos);
+//        }
+        renderizarInfoCuenta(saldo, numeroCuenta, estado, datosRecibidos);
 
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -22,35 +22,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/render"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="37dp"
-        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="411dp"
-            android:layout_height="207dp" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/transferenciaTittle" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="187dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="0dp"
+        android:layout_height="174dp"
         android:background="#9DA65D"
         android:backgroundTint="#9DA65D"
         android:orientation="vertical"
         android:padding="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/movimientoResponse"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferenciaTittle">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/saldoMovimiento"
@@ -81,14 +73,22 @@
         android:id="@+id/transferenciaTittle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="250dp"
         android:text="Movimientos"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/render"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/volverLobby" />
+
+    <TextView
+        android:id="@+id/movimientoResponse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/render"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

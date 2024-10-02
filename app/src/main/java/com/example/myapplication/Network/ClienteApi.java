@@ -2,12 +2,16 @@ package com.example.myapplication.Network;
 
 
 import com.example.myapplication.Network.DTO.LoginDTO;
+import com.example.myapplication.Network.DTO.MovimientoDTO;
 import com.example.myapplication.Network.DTO.ServiciosDTO;
 import com.example.myapplication.Network.DTO.UsuarioDTO;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface ClienteApi {
@@ -33,4 +37,10 @@ public interface ClienteApi {
             @Body ServiciosDTO serviciosDTO,
             @Path("idCuenta") Long idCuenta
     );
+
+    @GET("/movimientos/{cuentaId}")
+    Call<List<MovimientoDTO>> traerMovimientos(
+            @Path("cuentaId") Long idCuenta
+    );
+
 }
