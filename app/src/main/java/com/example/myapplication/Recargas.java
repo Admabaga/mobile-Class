@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,6 @@ import com.example.myapplication.Network.ClienteApi;
 import com.example.myapplication.Network.DTO.LoginDTO;
 import com.example.myapplication.Network.DTO.ServiciosDTO;
 import com.example.myapplication.Network.RespuestaErrorBackend;
-import com.example.myapplication.Network.RespuestaRegistro;
 import com.google.gson.Gson;
 
 import java.text.DecimalFormat;
@@ -43,7 +43,7 @@ public class Recargas extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_recargas);
         Intent intent = getIntent();
-        LoginDTO datosRecibidos = (LoginDTO) intent.getSerializableExtra("datos");
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -57,10 +57,11 @@ public class Recargas extends AppCompatActivity {
         estado = findViewById(R.id.estado);
         numeroCuenta = findViewById(R.id.numeroCuenta);
         valorRecarga = findViewById(R.id.valorARecargar);
+        LoginDTO datosRecibidos = (LoginDTO) intent.getSerializableExtra("datos");
         Retrofit retrofit = new Retrofit.Builder()
-
-//              .baseUrl("https://banco-backend-znok.onrender.com")
-                .baseUrl("http://192.168.20.22:8080/")
+                .baseUrl("http://172.16.57.195:8080")
+//                .baseUrl("http://192.168.20.22:8080")
+//                .baseUrl("https://banco-backend-znok.onrender.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         clienteApi = retrofit.create(ClienteApi.class);
@@ -69,8 +70,10 @@ public class Recargas extends AppCompatActivity {
         volverLobby.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Recargas.this, Lobby.class);
-                startActivity(intent);
+                Intent resultIntent = new Intent(Recargas.this, Lobby.class);
+                LoginDTO datosActuales = new LoginDTO();
+                datosActuales.setSaldo(datosRecibidos.getSaldo());
+                resultIntent.putExtra("datosActualizados", datosActuales);
                 finish();
             }
         });
@@ -81,7 +84,7 @@ public class Recargas extends AppCompatActivity {
                 ServiciosDTO serviciosDTO = new ServiciosDTO();
                 serviciosDTO.setValor(Double.parseDouble(valorARecargar));
                 Long idCuenta = datosRecibidos.getIdCuenta();
-                enviarPeticionRecargar(serviciosDTO, idCuenta);
+                enviarPeticionRecargar(serviciosDTO, idCuenta, datosRecibidos);
             } catch (NumberFormatException e) {
                 respuestaServer.setText("Valor inválido. Debe ser un número.");
             }
@@ -99,7 +102,7 @@ public class Recargas extends AppCompatActivity {
         }
     }
 
-    private void enviarPeticionRecargar(final ServiciosDTO serviciosDTO, Long idCuenta) {
+    private void enviarPeticionRecargar(final ServiciosDTO serviciosDTO, Long idCuenta, LoginDTO datosRecibidos) {
         runOnUiThread(() -> {
             try {
                 Call<ServiciosDTO> call = clienteApi.consignar(serviciosDTO, idCuenta);
@@ -110,6 +113,7 @@ public class Recargas extends AppCompatActivity {
                             ServiciosDTO serviciosDTO1 = response.body();
                             saldo.setText("Saldo: "+numeros(serviciosDTO1.getSaldo()));
                             respuestaServer.setText("Recarga exitosa.");
+                            datosRecibidos.setSaldo(numeros(serviciosDTO1.getSaldo()));
                         } else {
                             try {
                                 String errorBody = response.errorBody().string();

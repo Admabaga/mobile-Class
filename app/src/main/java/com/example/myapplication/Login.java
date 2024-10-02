@@ -50,7 +50,8 @@ public class Login extends AppCompatActivity {
         Retrofit retrofit = new Retrofit.Builder()
 
 //                .baseUrl("https://banco-backend-znok.onrender.com")
-                .baseUrl("http://192.168.20.22:8080/")
+//                .baseUrl("http://192.168.20.22:8080/")
+                .baseUrl("http://172.16.57.195:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         clienteApi = retrofit.create(ClienteApi.class);

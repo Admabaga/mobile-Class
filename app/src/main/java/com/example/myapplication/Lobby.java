@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.Network.DTO.LoginDTO;
+
+import java.text.DecimalFormat;
 
 public class Lobby extends AppCompatActivity {
     private Button recarga;
@@ -45,7 +48,18 @@ public class Lobby extends AppCompatActivity {
         saldo = findViewById(R.id.saldo);
         estado = findViewById(R.id.estado);
         numeroCuenta = findViewById(R.id.numeroCuenta);
-        renderizarInfoCuenta(saldo, numeroCuenta, estado, datosRecibidos);
+
+        Intent intentActualizar = getIntent();
+        LoginDTO actualizarData = (LoginDTO) intentActualizar.getSerializableExtra("datosActualizados");
+
+        // Combinar los datos originales con los actualizados
+        if (actualizarData != null) {
+            renderizarInfoCuenta(saldo, numeroCuenta, estado, actualizarData);
+
+        }else {
+            renderizarInfoCuenta(saldo, numeroCuenta, estado, datosRecibidos);
+        }
+
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,15 +105,15 @@ public class Lobby extends AppCompatActivity {
             }
         });
 
+    }
 
+    public void renderizarInfoCuenta(TextView saldo, TextView numeroCuenta, TextView estado, LoginDTO datos){
+        String saldoTexto = "Saldo: " + datos.getSaldo();
+        String numeroCuentaTexto = "Numero de cuenta: " + datos.getNumeroCuenta();
+        String estadoTexto = datos.getEstado() ? "Cuenta: Activa" : "Cuenta: Inactiva";
+        saldo.setText(saldoTexto);
+        numeroCuenta.setText(numeroCuentaTexto);
+        estado.setText(estadoTexto);
     }
-    public void renderizarInfoCuenta(TextView saldo, TextView numeroCuenta, TextView estado, LoginDTO datosRecibidos){
-        saldo.setText("Saldo: "+datosRecibidos.getSaldo());
-        numeroCuenta.setText("Numero de cuenta: "+datosRecibidos.getNumeroCuenta());
-        if (datosRecibidos.getEstado()!= true){
-            estado.setText("Cuenta: Inactiva");
-        }else {
-            estado.setText("Cuenta: Activa");
-        }
-    }
+
 }

@@ -13,7 +13,7 @@ import retrofit2.http.Path;
 public interface ClienteApi {
 
     @POST("/usuarios")
-    Call<RespuestaServicios> registroUsuario(
+    Call<RespuestaRegistro> registroUsuario(
             @Body UsuarioDTO usuarioDTO
     );
 

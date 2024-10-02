@@ -59,9 +59,8 @@ public class Retiros extends AppCompatActivity {
         valorRetiro = findViewById(R.id.valorARetirar);
         renderizarInfoCuenta(saldo, numeroCuenta, estado, datosRecibidos);
         Retrofit retrofit = new Retrofit.Builder()
-
-//              .baseUrl("https://banco-backend-znok.onrender.com")
-                .baseUrl("http://192.168.20.22:8080/")
+                .baseUrl("http://172.16.57.195:8080")
+//                .baseUrl("https://banco-backend-znok.onrender.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         clienteApi = retrofit.create(ClienteApi.class);
@@ -107,8 +106,8 @@ public class Retiros extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ServiciosDTO> call, Response<ServiciosDTO> response) {
                         if (response.isSuccessful()) {
-                            ServiciosDTO serviciosDTO1 = response.body();
-                            saldo.setText("Saldo: "+numeros(serviciosDTO1.getSaldo()));
+                            ServiciosDTO datosBack = response.body();
+                            saldo.setText("Saldo: "+numeros(datosBack.getSaldo()));
                             respuestaServer.setText("Retiro exitoso.");
                         } else {
                             try {

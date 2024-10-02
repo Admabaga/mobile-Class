@@ -15,7 +15,6 @@ import com.example.myapplication.Network.ClienteApi;
 import com.example.myapplication.Network.RespuestaErrorBackend;
 import com.example.myapplication.Network.RespuestaRegistro;
 import com.example.myapplication.Network.DTO.UsuarioDTO;
-import com.example.myapplication.Network.RespuestaServicios;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -54,9 +53,9 @@ public class Registro extends AppCompatActivity {
         correoElectronico = findViewById(R.id.correoUsuario);
         respuestaServer = findViewById(R.id.responseRegistro);
         Retrofit retrofit = new Retrofit.Builder()
-
-//                    .baseUrl("https://banco-backend-znok.onrender.com")
-                .baseUrl("http://192.168.20.22:8080/")
+                .baseUrl("http://172.16.57.195:8080")
+//                .baseUrl("http://192.168.20.22:8080/")
+//                .baseUrl("https://banco-backend-znok.onrender.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         clienteApi = retrofit.create(ClienteApi.class);
@@ -80,10 +79,10 @@ public class Registro extends AppCompatActivity {
     private void enviarPeticionRegistro(final UsuarioDTO usuario) {
         runOnUiThread(() -> {
             try {
-                Call<RespuestaServicios> call = clienteApi.registroUsuario(usuario);
-                call.enqueue(new Callback<RespuestaServicios>() {
+                Call<RespuestaRegistro> call = clienteApi.registroUsuario(usuario);
+                call.enqueue(new Callback<RespuestaRegistro>() {
                     @Override
-                    public void onResponse(Call<RespuestaServicios> call, Response<RespuestaServicios> response) {
+                    public void onResponse(Call<RespuestaRegistro> call, Response<RespuestaRegistro> response) {
                         if (response.isSuccessful()) {
                             mensajeExitoso();
                         } else {
@@ -103,7 +102,7 @@ public class Registro extends AppCompatActivity {
                         }
                     }
                     @Override
-                    public void onFailure(Call<RespuestaServicios> call, Throwable t) {
+                    public void onFailure(Call<RespuestaRegistro> call, Throwable t) {
                         mostrarError(t.getMessage());
                     }
                 });
